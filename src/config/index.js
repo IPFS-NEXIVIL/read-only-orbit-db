@@ -3,6 +3,9 @@ const config = {
       preload: {
         enabled: false
       },
+      relay: { enabled: true },
+	  hop: { enabled: true, active: true },
+	  EXPERIMENTAL: { pubsub: true },
       repo: "ok" + Math.random(),
       config: {
         Addresses: {

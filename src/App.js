@@ -22,6 +22,9 @@ function App() {
     // const queryData = selectedDB
     //   .query((e) => e !== null, { fullOp: true })
     //   .reverse();
+    console.log(selectedDB.address)
+    // selectedDB.events.on('peer', (peer) => console.log(peer))
+    // const hash = await selectedDB.put({ content:"test", date:1.665121973411e+12, _id:"48d56932-4604-11ed-be79-0242ac1e0003", project:"project" ,type:"data" })
     const value = selectedDB.get('');
     // console.log(queryData, "kkkkkkkkkkk");
     console.log(value)
@@ -50,8 +53,11 @@ function App() {
   const onAdd = async(address) => {
     setAddRemoteDB(address);
     console.log(addRemoteDB, "에 연결 중 ...")
-    const db = await getDB(addRemoteDB)
-    setSelectedDB(db)
+    addDatabase(address).then(async (hash) => {
+      console.log("Added", address);
+      const db = await getDB(address);
+      setSelectedDB(db);
+    });
   }
   
   return (
