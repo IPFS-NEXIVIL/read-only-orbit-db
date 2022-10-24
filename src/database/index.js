@@ -39,8 +39,9 @@ export const getAllDatabases = async () => {
 export const getDB = async (address) => {
     let db
     if (orbitdb) {
-        db = await orbitdb.open(address, { create: true })
+        db = await orbitdb.open(address, { sync: true })
         console.log(db)
+        
         await db.load()
     }
     console.log(orbitdb)
