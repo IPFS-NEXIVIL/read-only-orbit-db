@@ -1,6 +1,7 @@
 import { addDatabase, getDB, initOrbitDB, initIPFS, getAllDatabases } from "./database";
 import { useState, useEffect } from "react";
 
+
 function App() {
 
   const [alldb, setalldb] = useState([]);
@@ -78,7 +79,6 @@ function App() {
             return (
               <>
                 <li>{JSON.stringify(data.payload.value, null, 2)}</li>
-
                 <br />
               </>
             );
